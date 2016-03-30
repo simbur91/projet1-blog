@@ -7,7 +7,7 @@ $limit=  explode('-',getpagination('billets'));
 if (isset($_GET['page'])) {
         $page = (int) $_GET['page'];
         if ($page > $limit[1] || $page < 0) {
-            header('Location:vues/404.php');
+            header('Location:vues/blog/404.php');
         }
     } else {
         $page = 1;

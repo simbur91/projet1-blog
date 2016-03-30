@@ -1,7 +1,7 @@
 <?php
 
 
-if (!empty($_POST['commentaire'])) {
+if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
     $texte = stripslashes($_POST['commentaire']);
     $texte = htmlspecialchars($texte);
     $texte = nl2br($texte);

@@ -10,20 +10,22 @@
         <h1>Mon super blog !</h1>
         <p>Derniers billets du blog :</p>
 
+
+        <article>
+                <h3>
+    <?php echo $commentaire['titre']; ?>
+        <em>le <?php echo $commentaire['date_creation']; ?></em>
+        </h3>
+
+        <p>
+            <?php echo $commentaire['contenu']; ?>
+            <br />
+            </article>
         <?php
         foreach ($commentaires as $commentaire) {
             $avatar = "http://2.gravatar.com/avatar/" . sha1($commentaire['email']);
             ?>
-            <article>
-                <h3>
-    <?php echo $commentaire['titre']; ?>
-                    <em>le <?php echo $commentaire['date_creation']; ?></em>
-                </h3>
 
-                <p>
-    <?php echo $commentaire['contenu']; ?>
-                    <br />
-            </article>
             <div id="com">   
 
                 <p><img src="<?php echo $avatar; ?>"<strong><?php echo $commentaire['auteur']; ?></strong> le <?php echo $commentaire['date_commentaire_fr']; ?></p>
@@ -32,7 +34,7 @@
     <?php
 }
 ?>
-         <form method="post" action="controllers/blog/commentaires_post.php?billet=<?php echo $_GET['billet']; ?>">
+         <form method="post" action="commentaires_post.php?billet=<?php echo $_GET['billet']; ?>">
         <fieldset>
             <legend>Ajouter un commentaire</legend>
             <label for="pseudo"> Pseudo</label><input type="text" name="pseudo" id="pseudo"/><br/>
