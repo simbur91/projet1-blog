@@ -12,7 +12,7 @@
 
         <?php
         foreach ($commentaires as $commentaire) {
-            $avatar = "http://2.gravatar.com/avatar/" . md5($commentaire['email']);
+            $avatar = "http://2.gravatar.com/avatar/" . sha1($commentaire['email']);
             ?>
             <article>
                 <h3>

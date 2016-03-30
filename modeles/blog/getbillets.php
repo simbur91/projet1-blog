@@ -1,5 +1,5 @@
 <?php
-//include_once 'getpagination';
+
 function getbillets($offset,$limit){
     global $bdd;
     $offset=(int)$offset;

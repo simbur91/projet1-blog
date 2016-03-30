@@ -1,4 +1,5 @@
 <?php
+
 function getcommentaires($choixbillet){
     global $bdd;
     $choixbillet=$_GET['billet'];
