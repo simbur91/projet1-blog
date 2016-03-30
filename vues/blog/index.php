@@ -23,7 +23,7 @@ foreach($billets as $billet)
     <p>
     <?php echo $billet['contenu']; ?>
     <br />
-    <em><a href="vues/blog/commentaires.php?billet=<?php echo $billet['id']; ?>">Commentaires</a></em>
+    <em><a href="commentaires.php?billet=<?php echo $billet['id']; ?>">Commentaires</a></em>
     </p>
 </article>
 <?php
