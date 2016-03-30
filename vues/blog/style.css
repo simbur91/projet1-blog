@@ -1,0 +1,73 @@
+h1, h3
+{
+    text-align:center;
+}
+h3
+{
+    background-color:black;
+    color:white;
+    font-size:0.9em;
+    margin-bottom:0px;
+}
+article p
+{
+    background-color:#CCCCCC;
+    margin-top:0px;
+}
+article
+{
+    width:70%;
+    margin:auto;
+}
+
+a
+{
+    text-decoration: none;
+    color: blue;
+}
+#com,#pag{
+    width:70%;
+    margin:0 auto;
+}
+input:valid{
+    border-right: 2px solid green;
+}
+input:invalid,textarea:invalid{
+    border-right: 2px solid red;
+}
+form{
+    
+    width:30%;
+    margin:auto;
+    
+}
+.envoyer:valid {
+    border-right: 0;
+}
+form fieldset{
+    
+}
+form h2{
+    color:blue;
+}
+.envoyer{
+    color:white;
+    display: block;
+    margin:0 auto;
+   width: 200px;
+   background-color: #696969;
+}
+input:focus,textarea:focus{
+    background-color: #c4c4c4;
+    
+}
+label{
+    display:inline-block;
+    width:150px;
+    margin:10px;
+}
+.pagination{
+    width:50%;
+    text-align: center;
+    margin:auto;
+}
