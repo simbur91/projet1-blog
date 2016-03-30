@@ -13,12 +13,12 @@ foreach ($commentaires as $cle => $commentaire) {
     $commentaires[$cle]['date_commentaire_fr']=$commentaire['date_commentaire_fr'];
     $commentaires[$cle]['commentaire']=  nl2br(htmlspecialchars($commentaire['commentaire']));
     $commentaires[$cle]['email']=$commentaire['email'];
-    
+    include_once 'vues/blog/commentaires.php';
     
 }
 
-include_once 'vues/blog/commentaires.php';
+
 }else{
-    header('Location:vues/404.php');
+    header('Location:vues/blog/404.php');
 }
 
