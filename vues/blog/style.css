@@ -71,3 +71,12 @@ label{
     text-align: center;
     margin:auto;
 }
+.envoie{
+    width: 40%;
+    margin:auto;
+    font-size: 110%;
+    text-align: center;
+    border:1px solid #006400;
+    background-color:#BCEE68 ;
+    color:#006400;
+}

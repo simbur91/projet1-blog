@@ -18,8 +18,10 @@ if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
             echo 'email invalide';
         }
     }
-    include 'modeles/blog/commentaire_post.php';
-    header('Location:commentaires.php?billet=' . $idbillet);
+    include_once 'modeles/blog/commentaires_post.php';
+    $idbillet=$_GET['billet'];
+    addcom($texte, $_POST['email'], $_POST['pseudo']);
+    header('Location:commentaires.php?billet='.$idbillet.'&message=envoyer');
 } else {
     echo 'Veuillez remplir le champ commentaire';
 }
