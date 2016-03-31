@@ -13,6 +13,7 @@ foreach ($commentaires as $cle => $commentaire) {
     $commentaires[$cle]['date_commentaire_fr']=$commentaire['date_commentaire_fr'];
     $commentaires[$cle]['commentaire']=  nl2br(htmlspecialchars($commentaire['commentaire']));
     $commentaires[$cle]['email']=$commentaire['email'];
+    
     include_once 'vues/blog/commentaires.php';
     
 }

@@ -11,6 +11,7 @@
         <p>Derniers billets du blog :</p>
 
         <a href='vues/blog/connexion.php'>Connexion</a>
+        <a href='vues/blog/inscription.php'>S'inscrire</a>
         <article>
                 <h3>
     <?php echo $commentaire['titre']; ?>

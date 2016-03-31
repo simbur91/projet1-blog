@@ -7,6 +7,7 @@
     </head>
 
     <body>
+        <a href='../../blog.php'>Liste des billets</a>
         <div id="connec">
          <form method="post" action="">
              <h2>Inscription</h2>
