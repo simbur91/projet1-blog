@@ -23,6 +23,7 @@
             <br />
         </p>
             </article>
+          
         <?php
                 if(isset($_GET['message'])){
             echo '<p class="envoie">Votre commentaire a bien été enregistré et attend d\'être soumis à validation </p>';
@@ -32,8 +33,8 @@
             $avatar="http://2.gravatar.com/avatar/" . md5($commentaire['email']);
            if(!empty($commentaire['commentaire'])){
             ?>
-
-            <div id="com">   
+<div class="com">
+             
 
                 <p><img src="<?php echo $avatar; ?>"<strong><?php echo $commentaire['auteur']; ?></strong> le <?php echo $commentaire['date_commentaire_fr']; ?></p>
                 <p> <?php echo $commentaire['commentaire']; ?></p>
@@ -44,6 +45,7 @@
 
 
         ?>
+                
          <form method="post" action="commentaires_post.php?billet=<?php echo $_GET['billet']; ?>">
         <fieldset>
             <legend>Ajouter un commentaire</legend>

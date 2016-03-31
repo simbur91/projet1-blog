@@ -25,7 +25,7 @@ a
     text-decoration: none;
     color: blue;
 }
-#com,#pag{
+.com,#pag{
     width:70%;
     margin:0 auto;
 }
@@ -79,4 +79,13 @@ label{
     border:1px solid #006400;
     background-color:#BCEE68 ;
     color:#006400;
+}
+p img{
+    float:left;
+    margin-bottom: 30px;
+}
+
+.com{
+    clear: both;
+    
 }
