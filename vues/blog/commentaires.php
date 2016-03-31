@@ -10,7 +10,7 @@
         <h1>Mon super blog !</h1>
         <p>Derniers billets du blog :</p>
 
-
+        <a href='vues/blog/connexion.php'>Connexion</a>
         <article>
                 <h3>
     <?php echo $commentaire['titre']; ?>
