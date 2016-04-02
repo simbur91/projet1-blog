@@ -1,8 +1,10 @@
 <?php
+$idbillet=$_GET['billet'];
+$commentaire=isset($_POST['commentaire']);
+$email=isset($_POST['email']);
 
-
-if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
-    $texte = stripslashes($_POST['commentaire']);
+if (!empty($commentaire)) {
+    $texte = stripslashes($commentaire);
     $texte = htmlspecialchars($texte);
     $texte = nl2br($texte);
 
@@ -11,7 +13,7 @@ if (isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
     $texte = preg_replace('#\[i\](.+)\[/i\]#isU', '<em>$1</em>', $texte);
     $texte = preg_replace('#http://[a-z0-9._/-]+#i', '<a href="$0">$0</a>', $texte);
 
-    if (!empty($_POST['email'])) {
+    if (!empty($email)) {
         if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}?#", $_POST['email'])) {
             echo 'email valide';
         } else {
