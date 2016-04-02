@@ -25,15 +25,18 @@ a
     text-decoration: none;
     color: blue;
 }
-#com,#pag{
+.com,#pag{
     width:70%;
     margin:0 auto;
 }
-input:valid{
-    border-right: 2px solid green;
+
+input:valid:not(.envoyer){
+    border: 2px solid green;
+    background-color:#BCEE68 ;
 }
 input:invalid,textarea:invalid{
-    border-right: 2px solid red;
+    border: 2px solid red;
+    background-color:#FFB6C1 ;
 }
 form{
     
@@ -48,7 +51,7 @@ form fieldset{
     
 }
 form h2{
-    color:blue;
+    color:#696969;
 }
 .envoyer{
     color:white;
@@ -70,4 +73,35 @@ label{
     width:50%;
     text-align: center;
     margin:auto;
+}
+.envoie{
+    width: 40%;
+    margin:auto;
+    font-size: 110%;
+    text-align: center;
+    border:1px solid #006400;
+    background-color:#BCEE68 ;
+    color:#006400;
+}
+p img{
+    float:left;
+    margin-bottom: 30px;
+}
+
+.com{
+    clear: both;
+    
+}
+#connec{
+    width:25%;
+    margin:auto;
+    background-color: #CCCCCC;
+    border:1px solid #696969;
+    border-radius: 20px;
+}
+#connec h2{
+    text-align: center;
+}
+#connec form{
+    width:100%;
 }
