@@ -12,15 +12,15 @@ if (!empty($pseudo)&&!empty($email)&&!empty($_POST['password']) && !empty($_POST
             include_once 'modeles/blog/inscription.php';
             adduser($pseudo,$email,$password);
         }else {
-            header('Location:./../../vues/blog/inscription.php?passwd=mauvais');
+            header('Location:inscription.php?passwd=mauvais');
         }
 
     }else {
-            header('Location:./../../vues/blog/inscription.php?email=mauvais');
+            header('Location:inscription.php?email=mauvais');
     }
 
 }else{
-    header('Location:./../../vues/blog/inscription.php?&form=mauvais');
+    header('Location:inscription.php?&form=mauvais');
 }
 if($_GET['email']&&$_GET['form']&&$_GET['passwd'] != 'mauvais'){
     header('Location:../../vues/blog/404.php');

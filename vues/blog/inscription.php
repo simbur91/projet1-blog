@@ -9,7 +9,7 @@
     <body>
         <a href='../../blog.php'>Liste des billets</a>
         <div id="connec">
-         <form method="post" action="../../controllers/blog/inscription.php">
+         <form method="post" action="inscription.php">
              <h2>Inscription</h2>
              <?php  if(isset($_GET['erreur'])){echo '<p>Veuillez remplir tous les champs</p>';}?>
              <label for="pseudo"> Pseudo</label><input type="text" name="pseudo" id="pseudo" required="required"/><br/>
