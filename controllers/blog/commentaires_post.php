@@ -14,7 +14,7 @@ if (!empty($commentaire)) {
     $texte = preg_replace('#http://[a-z0-9._/-]+#i', '<a href="$0">$0</a>', $texte);
 
     if (!empty($email)) {
-        if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}?#", $_POST['email'])) {
+        if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email'])) {
             echo 'email valide';
         } else {
             echo 'email invalide';
