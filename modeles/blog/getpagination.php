@@ -11,6 +11,6 @@ function getpagination($table,$nb_par_page = 5) {
     $nombre_billets = $total_billet['nb'];
     $nombre_page = ceil($nombre_billets / $nb_par_page);
     
-    return $nb_par_page. '-' . $nombre_page;
+    return $nb_par_page. '-' . $nombre_page.'-'.$nombre_billets;
 
 }
