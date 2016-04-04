@@ -20,8 +20,6 @@ if (!empty($pseudo)&&!empty($email)&&!empty($_POST['password']) && !empty($_POST
     }
 
 }else{
-    header('Location:inscription.php?&form=mauvais');
+
 }
-if($_GET['email']&&$_GET['form']&&$_GET['passwd'] != 'mauvais'){
-    header('Location:../../vues/blog/404.php');
-}
+include_once 'vues/blog/inscription.php';

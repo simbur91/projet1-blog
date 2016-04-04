@@ -10,7 +10,7 @@
         <h1>Mon super blog !</h1>
         <p>Derniers billets du blog :</p>
   <a href='vues/blog/connexion.php'>Connexion</a>
-        <a href='vues/blog/inscription.php'>S'inscrire</a>
+        <a href='inscription.php'>S'inscrire</a>
 <?php
 foreach($billets as $billet)
 {
