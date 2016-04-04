@@ -37,5 +37,8 @@ foreach($validations as $validation)
 
     </p>
 </article>
+<div class="com">
+    <strong><?php echo $validation['auteur']; ?></strong> le <?php echo $validation['date_commentaire_fr']; ?></p>
+                <p> <?php echo $validation['commentaire']; ?></p></div>
 <?php
 }
