@@ -22,6 +22,7 @@ if(!isset($_SESSION['pseudo'])) {
 <a href='connexion.php'>Connexion</a>
 <a href='inscription.php'>S'inscrire</a>
 <?php
+
 foreach($validations as $validation)
 {
 ?>

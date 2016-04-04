@@ -24,6 +24,7 @@ foreach($validations as $cle =>$validation){
     $validations[$cle]['date_commentaire_fr']=$validation['date_commentaire_fr'];
     $validations[$cle]['commentaire']=  nl2br(htmlspecialchars($validation['commentaire']));
     $validations[$cle]['email']=$validation['email'];
+    $validations[$cle]['billet_id']=$validation['billet_id'];
 
     include_once 'vues/admin/dashboard.php';
 
