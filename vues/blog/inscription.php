@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>Mon blog</title>
         <link href="vues/blog/style.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -11,6 +12,8 @@
         <div id="connec">
          <form method="post" action="inscription.php">
              <h2>Inscription</h2>
+             <?php if(isset($_GET['message'])&&$_GET['message']=='inscrit'){echo'<p class="envoie">Merci pour votre inscription</p>';}?>
+             <?php if(isset($_GET['message'])&&$_GET['message']=='mauvais'){echo'<p class="erreur">Veuillez remplir tout les champs</p>';}?>
              <?php  if(isset($_GET['erreur'])){echo '<p>Veuillez remplir tous les champs</p>';}?>
              <label for="pseudo"> Pseudo</label><input type="text" name="pseudo" id="pseudo" required="required"/><br/>
             <label for="email">Email</label><input type="email" name="email" id="email" required="required"/><br/>

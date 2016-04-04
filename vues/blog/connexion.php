@@ -7,7 +7,7 @@
     </head>
 
     <body>
-         <a href="inscription.php">S'inscrire</a>
+        <a href='inscription.php'>S'inscrire</a>
         <div id="connec">
          <form method="post" action="">
              <h2>Connexion</h2>
