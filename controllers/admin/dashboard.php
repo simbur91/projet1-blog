@@ -1,5 +1,6 @@
 <?php
 include_once 'modeles/admin/dashboard.php';
+include_once 'modeles/blog/getbillets.php';
 include_once 'modeles/blog/getpagination.php';
 $limit=  explode('-',getpagination('billets'));
 

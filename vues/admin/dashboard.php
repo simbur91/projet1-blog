@@ -11,15 +11,27 @@ if(!isset($_SESSION['pseudo'])) {
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Mon blog</title>
+    <title>Administration</title>
     <link href="../vues/blog/style.css" rel="stylesheet" />
 </head>
 
 <body>
-<h1>Mon super blog !</h1>
-<p>Derniers billets du blog :</p>
+<h1>Commentaires à valider !</h1>
+
 
 <a href='connexion.php'>Connexion</a>
 <a href='inscription.php'>S'inscrire</a>
+<?php for($i=1;$i <= $limit[2]; $i++){
+    $validation['id']=$i?>
 <article>
     <h3>
+        <?php echo $validation['titre']; ?>
+        <em>le <?php echo $validation['date_creation']; ?></em>
+    </h3>
+    <p>
+        <?php echo $validation['contenu']; ?>
+        <br />
+
+    </p>
+</article>
+<?php }?>
