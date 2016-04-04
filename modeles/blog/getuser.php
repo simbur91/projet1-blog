@@ -1,14 +1,14 @@
 <?php
-function getuser($pseudo,$password){
+function getadmin($pseudo,$password){
     $pseudo=(string)$pseudo;
-    $password=(string)$password;
+    $password=(string)sha1($password);
 global $bdd;
-$req=$bdd->prepare('SELECT pseudo FROM users WHERE pseudo=:pseudo and password=:password');
+$req=$bdd->prepare('SELECT pseudo,password FROM users WHERE pseudo=:pseudo and password=:password and statut=1');
 $req->bindParam(':password',$password,  PDO::PARAM_STR);
 $req->bindParam(':pseudo',$pseudo,  PDO::PARAM_STR);
 $req->execute();
-$user=$req->fetch();
-return $user;
+$users=$req->fetch();
+    return $users;
 }
 
 /* 

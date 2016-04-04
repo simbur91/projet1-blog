@@ -1,8 +1,16 @@
 <?php
+include_once 'modeles/admin/dashboard.php';
+$validation=commentairesvalidation();
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+foreach($validations as $cle =>$validation){
+    $validations[$cle]['titre']=  htmlspecialchars($validation['titre']);
+    $validations[$cle]['contenu']=  nl2br(htmlspecialchars($validation['contenu']));
+    $validations[$cle]['date_creation']=$validation['date_creation'];
+    $validations[$cle]['auteur']=  htmlspecialchars($validation['auteur']);
+    $validations[$cle]['date_commentaire_fr']=$validation['date_commentaire_fr'];
+    $validations[$cle]['commentaire']=  nl2br(htmlspecialchars($validation['commentaire']));
+    $validations[$cle]['email']=$validation['email'];
+
+    include_once 'vues/blog/validation.php';
+}
 

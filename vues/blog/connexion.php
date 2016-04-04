@@ -9,7 +9,7 @@
     <body>
         <a href='inscription.php'>S'inscrire</a>
         <div id="connec">
-         <form method="post" action="">
+         <form method="post" action="connexion.php">
              <h2>Connexion</h2>
             <label for="pseudo"> Pseudo</label><input type="text" name="pseudo" id="pseudo"  required="required"/><br/>
             <label for="passwd">Mot de passe</label><input type="password" id="email" name="password"  required="required"/><br/>

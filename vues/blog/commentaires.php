@@ -10,7 +10,7 @@
         <h1>Mon super blog !</h1>
         <p>Derniers billets du blog :</p>
 
-        <a href='vues/blog/connexion.php'>Connexion</a>
+        <a href='connexion.php'>Connexion</a>
         <a href='inscription.php'>S'inscrire</a>
         <article>
                 <h3>
