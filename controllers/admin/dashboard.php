@@ -14,7 +14,7 @@ if (isset($_GET['page'])) {
 }
 $premiersbillets = ($page - 1) * $limit[0];
 $billets=getbillets($premiersbillets, $limit[0]);
-$validation=commentairesvalidation();
+$validations=commentairesvalidation();
 
 foreach($validations as $cle =>$validation){
     $validations[$cle]['titre']=  htmlspecialchars($validation['titre']);
@@ -25,7 +25,7 @@ foreach($validations as $cle =>$validation){
     $validations[$cle]['commentaire']=  nl2br(htmlspecialchars($validation['commentaire']));
     $validations[$cle]['email']=$validation['email'];
 
-    include_once 'vues/blog/validation.php';
-    include_once 'vues/blog/pagination.php';
+    include_once 'vues/admin/dashboard.php';
+
 }
 
