@@ -22,6 +22,6 @@ foreach ($billets as $cle => $billet) {
     
 }
 
- 
+ $nompage='blog';
 include_once 'vues/blog/index.php';
 include_once 'vues/blog/pagination.php';

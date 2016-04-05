@@ -1,10 +1,14 @@
 <?php
-function commentairesvalidation()
+function commentairesvalidation($offset,$limit)
 {
     global $bdd;
-    $req = $bdd->prepare('SELECT b.id,b.titre, b.contenu,DATE_FORMAT(date_creation,\'%d/%m/%Y\')AS date_creation ,v.id as id_com,v.auteur,v.billet_id, v.commentaire,v.email, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr'
+    $offset=(int)$offset;
+    $limit=(int)$limit;
+    $req = $bdd->prepare('SELECT b.id,b.titre, b.contenu,DATE_FORMAT(date_creation,\'%d/%m/%Y\')AS date_creation ,c.id as id_com,c.auteur,c.id_billet, c.commentaire,c.email, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_commentaire_fr'
         . '                  FROM billets b'
-        . '                 LEFT JOIN validation v ON b.id=v.billet_id WHERE statut =0 order by v.billet_id');
+        . '                 LEFT JOIN commentaires c ON b.id=c.id_billet WHERE c.statut =0 order by c.id_billet DESC LIMIT :offset,:limit');
+    $req->bindParam(':offset',$offset,  PDO::PARAM_INT);
+    $req->bindParam(':limit',$limit,  PDO::PARAM_INT);
     $req->execute();
     $validation = $req->fetchAll();
     return $validation;

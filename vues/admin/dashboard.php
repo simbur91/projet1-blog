@@ -25,8 +25,8 @@ if (!isset($_SESSION['pseudo'])) {
         $currentbilletid = $lastbilletid = null;
 
         foreach ($validations as $validation) {
-            $currentbilletid = $validation['billet_id'];
-            if ($validation['billet_id'] = $validation['id']) {
+            $currentbilletid = $validation['id_billet'];
+            if ($validation['id_billet'] = $validation['id']) {
 
                 if ($currentbilletid != $lastbilletid) {
                     ?>
@@ -39,6 +39,8 @@ if (!isset($_SESSION['pseudo'])) {
 
                         <p>
                             <?php echo $validation['contenu']; ?>
+                            <a href="editer.php?billet=<?php echo $validation['id'];?>">Modifier</a>
+                            <a href="supprimer.php?billet=<?php echo $validation['id'];?>">Supprimer</a>
                             <br />
 
                         </p>

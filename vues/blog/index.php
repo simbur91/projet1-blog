@@ -22,6 +22,9 @@ session_start();
         }
         if(isset($_GET['message']) && $_GET['message']='deconnecter'){
             echo '<p class="deco">Vous vous êtes déconnecté</p>';
+            $time_out = 5;
+            $url='blog.php';
+            header("refresh: $time_out; url=$url");
         }
         foreach ($billets as $billet) {
             ?>
