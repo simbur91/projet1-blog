@@ -16,6 +16,7 @@ $premiersbillets = ($page - 1) * $limit[0];
 $billets=getbillets($premiersbillets, $limit[0]);
 $validations=commentairesvalidation();
 
+
 foreach($validations as $cle =>$validation){
     $validations[$cle]['titre']=  htmlspecialchars($validation['titre']);
     $validations[$cle]['contenu']=  nl2br(htmlspecialchars($validation['contenu']));
@@ -25,8 +26,10 @@ foreach($validations as $cle =>$validation){
     $validations[$cle]['commentaire']=  nl2br(htmlspecialchars($validation['commentaire']));
     $validations[$cle]['email']=$validation['email'];
     $validations[$cle]['billet_id']=$validation['billet_id'];
+    $validations[$cle]['id']=$validation['id'];
 
-    include_once 'vues/admin/dashboard.php';
+    
 
 }
 
+include_once 'vues/admin/dashboard.php';
