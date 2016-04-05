@@ -27,6 +27,7 @@ foreach($validations as $cle =>$validation){
     $validations[$cle]['email']=$validation['email'];
     $validations[$cle]['billet_id']=$validation['billet_id'];
     $validations[$cle]['id']=$validation['id'];
+    $validations[$cle]['id_com']= $validation['id_com'];
 
     
 

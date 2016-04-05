@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 05 Avril 2016 à 14:06
+-- Généré le :  Mar 05 Avril 2016 à 14:55
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `date_commentaire` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_id_billet` (`id_billet`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `commentaires`
@@ -269,7 +269,8 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 (102, 100, 'simon', 'simon.buerman@gmail.com', 'salut', '2016-03-31 09:51:38'),
 (103, 100, 'simars', 'simon.buerman@gmail.com', 'sss', '2016-03-31 09:55:09'),
 (104, 100, 'kevin', 'simon.buerman@gmail.com', 'ssss', '2016-03-31 09:55:33'),
-(105, 100, 'simars', 'simon.buerman@gmail.com', 'sss', '2016-03-31 09:59:07');
+(105, 100, 'simars', 'simon.buerman@gmail.com', 'sss', '2016-03-31 09:59:07'),
+(106, 100, 'simars', 'simon.buerman@gmail.com', 'ss', '2016-03-31 11:11:03');
 
 -- --------------------------------------------------------
 
@@ -309,22 +310,23 @@ CREATE TABLE IF NOT EXISTS `validation` (
   `auteur` varchar(255) NOT NULL,
   `commentaire` text NOT NULL,
   `email` varchar(255) NOT NULL,
-  `billet_id` int(11) UNSIGNED NOT NULL,
+  `id_billet` int(11) UNSIGNED NOT NULL,
   `date_commentaire` datetime NOT NULL,
   `statut` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `fk_id_billet_validation` (`billet_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  KEY `fk_id_billet_validation` (`id_billet`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `validation`
 --
 
-INSERT INTO `validation` (`id`, `auteur`, `commentaire`, `email`, `billet_id`, `date_commentaire`, `statut`) VALUES
-(1, 'simars', 'ss', 'simon.buerman@gmail.com', 100, '2016-03-31 11:11:03', 0),
+INSERT INTO `validation` (`id`, `auteur`, `commentaire`, `email`, `id_billet`, `date_commentaire`, `statut`) VALUES
+(1, 'simars', 'ss', 'simon.buerman@gmail.com', 100, '2016-03-31 11:11:03', 1),
 (2, 'simars', 'sssgfhx', 'simon.buerman@gmail.com', 100, '2016-03-31 11:18:01', 0),
 (3, 'simars', 'ssss', '', 98, '2016-03-31 11:38:31', 0),
-(4, 'simbur', 'sssssss', 'sim_toy@hotmail.com', 100, '2016-04-04 14:38:33', 0);
+(4, 'simbur', 'sssssss', 'sim_toy@hotmail.com', 100, '2016-04-04 14:38:33', 0),
+(5, 'john', 'test', 'sim_toy@hotmail.com', 100, '2016-04-05 16:54:22', 0);
 
 --
 -- Déclencheurs `validation`
@@ -332,7 +334,7 @@ INSERT INTO `validation` (`id`, `auteur`, `commentaire`, `email`, `billet_id`, `
 DROP TRIGGER IF EXISTS `after_update_statut`;
 DELIMITER $$
 CREATE TRIGGER `after_update_statut` AFTER UPDATE ON `validation` FOR EACH ROW if(NEW.statut=1) THEN
-INSERT INTO commentaires(id_billet,auteur,email,commentaire,date_commentaire) VALUES (NEW.billet_id,NEW.auteur,NEW.email,NEW.commentaire,NEW.date_commentaire);
+INSERT INTO commentaires(id_billet,auteur,email,commentaire,date_commentaire) VALUES (NEW.id_billet,NEW.auteur,NEW.email,NEW.commentaire,NEW.date_commentaire);
 end if
 $$
 DELIMITER ;
@@ -351,7 +353,7 @@ ALTER TABLE `commentaires`
 -- Contraintes pour la table `validation`
 --
 ALTER TABLE `validation`
-  ADD CONSTRAINT `validation_ibfk_1` FOREIGN KEY (`billet_id`) REFERENCES `billets` (`id`);
+  ADD CONSTRAINT `validation_ibfk_1` FOREIGN KEY (`id_billet`) REFERENCES `billets` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

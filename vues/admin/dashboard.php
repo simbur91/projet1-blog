@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['pseudo'])) {
-    echo 'Vous n\'êtes pas autorisé´ à acceder à cette zone';
+    echo '<p class="deco">Vous n\'êtes pas autorisé à acceder à cette zone</p>';
     include('connexion.php');
     exit;
 }
@@ -47,8 +47,8 @@ if (!isset($_SESSION['pseudo'])) {
                 <div class="com">
                     <strong><?php echo $validation['auteur']; ?></strong> le <?php echo $validation['date_commentaire_fr']; ?></p>
                 <p> <?php echo $validation['commentaire']; ?>
-                    <a href="">Valider</a>
-                    <a href="">Supprimer</a>
+                    <a href="valider.php?commentaire=<?php echo $validation['id_com'];?>">Valider</a>
+                    <a href="supprimer.php?commentaire=<?php echo $validation['id_com'];?>">Supprimer</a>
                 </p></div>
             <?php
         }

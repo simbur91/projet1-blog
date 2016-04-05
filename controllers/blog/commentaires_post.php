@@ -2,6 +2,7 @@
 $idbillet=$_GET['billet'];
 $commentaire=isset($_POST['commentaire']);
 $email=isset($_POST['email']);
+$pseudo=  isset($_POST['pseudo']);
 
 if (!empty($commentaire)) {
     $texte = stripslashes($commentaire);
@@ -20,6 +21,7 @@ if (!empty($commentaire)) {
             echo 'email invalide';
         }
     }
+    $pseudo=  htmlspecialchars($pseudo);
     include_once 'modeles/blog/commentaires_post.php';
     $idbillet=$_GET['billet'];
     addcom($texte, $_POST['email'], $_POST['pseudo']);
