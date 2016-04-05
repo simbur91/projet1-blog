@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 31 Mars 2016 à 11:51
+-- Généré le :  Mar 05 Avril 2016 à 14:06
 -- Version du serveur :  5.7.9
 -- Version de PHP :  5.6.16
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `billets`;
 CREATE TABLE IF NOT EXISTS `billets` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `titre` text,
+  `titre` varchar(255) DEFAULT NULL,
   `contenu` text,
   `date_creation` varchar(255) DEFAULT NULL,
-  `auteur` text,
+  `auteur` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
 
@@ -274,6 +274,32 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(200) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `statut` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `pseudo` (`pseudo`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `users`
+--
+
+INSERT INTO `users` (`id`, `pseudo`, `email`, `password`, `statut`) VALUES
+(1, 'simbur', 'simon.buerman@gmail.com', '88d604ae7c7db4ac0f5a310408960af84b4c5b72', 1),
+(5, 'juljuve', 'sim_toy@hotmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `validation`
 --
 
@@ -283,21 +309,33 @@ CREATE TABLE IF NOT EXISTS `validation` (
   `auteur` varchar(255) NOT NULL,
   `commentaire` text NOT NULL,
   `email` varchar(255) NOT NULL,
-  `id_billet` int(11) UNSIGNED NOT NULL,
+  `billet_id` int(11) UNSIGNED NOT NULL,
   `date_commentaire` datetime NOT NULL,
   `statut` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `fk_id_billet_validation` (`id_billet`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  KEY `fk_id_billet_validation` (`billet_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `validation`
 --
 
-INSERT INTO `validation` (`id`, `auteur`, `commentaire`, `email`, `id_billet`, `date_commentaire`, `statut`) VALUES
+INSERT INTO `validation` (`id`, `auteur`, `commentaire`, `email`, `billet_id`, `date_commentaire`, `statut`) VALUES
 (1, 'simars', 'ss', 'simon.buerman@gmail.com', 100, '2016-03-31 11:11:03', 0),
 (2, 'simars', 'sssgfhx', 'simon.buerman@gmail.com', 100, '2016-03-31 11:18:01', 0),
-(3, 'simars', 'ssss', '', 98, '2016-03-31 11:38:31', 0);
+(3, 'simars', 'ssss', '', 98, '2016-03-31 11:38:31', 0),
+(4, 'simbur', 'sssssss', 'sim_toy@hotmail.com', 100, '2016-04-04 14:38:33', 0);
+
+--
+-- Déclencheurs `validation`
+--
+DROP TRIGGER IF EXISTS `after_update_statut`;
+DELIMITER $$
+CREATE TRIGGER `after_update_statut` AFTER UPDATE ON `validation` FOR EACH ROW if(NEW.statut=1) THEN
+INSERT INTO commentaires(id_billet,auteur,email,commentaire,date_commentaire) VALUES (NEW.billet_id,NEW.auteur,NEW.email,NEW.commentaire,NEW.date_commentaire);
+end if
+$$
+DELIMITER ;
 
 --
 -- Contraintes pour les tables exportées
@@ -313,7 +351,7 @@ ALTER TABLE `commentaires`
 -- Contraintes pour la table `validation`
 --
 ALTER TABLE `validation`
-  ADD CONSTRAINT `validation_ibfk_1` FOREIGN KEY (`id_billet`) REFERENCES `billets` (`id`);
+  ADD CONSTRAINT `validation_ibfk_1` FOREIGN KEY (`billet_id`) REFERENCES `billets` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

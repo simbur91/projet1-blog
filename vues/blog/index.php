@@ -20,6 +20,9 @@ session_start();
         
         echo'<a href="connexion.php">Connexion</a><a href="inscription.php">S\'inscrire</a>';
         }
+        if(isset($_GET['message']) && $_GET['message']='deconnecter'){
+            echo '<p class="deco">Vous vous êtes déconnecté</p>';
+        }
         foreach ($billets as $billet) {
             ?>
             <article>

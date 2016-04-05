@@ -60,6 +60,7 @@ form h2{
    width: 200px;
    background-color: #696969;
 }
+
 input:focus,textarea:focus{
     background-color: #c4c4c4;
     
@@ -104,4 +105,13 @@ p img{
 }
 #connec form{
     width:100%;
+}
+.deco{
+    width: 40%;
+    margin:auto;
+    font-size: 110%;
+    text-align: center;
+    border:1px solid red;
+    background-color:#FFB6C1 ;
+    color:red;
 }

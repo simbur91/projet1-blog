@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8" />
         <title>Mon blog</title>
-        <link href="style.css" rel="stylesheet" /> 
+        <link href="vues/blog/style.css" rel="stylesheet" /> 
     </head>
 
     <body>
         <a href='inscription.php'>S'inscrire</a>
+        <a href='blog.php'>Liste des billets</a>
         <div id="connec">
          <form method="post" action="connexion.php">
              <h2>Connexion</h2>
