@@ -42,14 +42,15 @@ form{
     
     width:30%;
     margin:auto;
+    background-color: #CCCCCC;
+    border:1px solid #696969;
+    border-radius: 20px;
     
 }
 .envoyer:valid {
     border-right: 0;
 }
-form fieldset{
-    
-}
+
 form h2{
     color:#696969;
 }
@@ -93,7 +94,7 @@ p img{
     clear: both;
     
 }
-#connec{
+#connec,#add{
     width:25%;
     margin:auto;
     background-color: #CCCCCC;

@@ -38,7 +38,11 @@ session_start();
                     <?php echo $billet['contenu']; ?>
                     <br />
                     <em><a href="commentaires.php?billet=<?php echo $billet['id']; ?>">Commentaires</a></em>
+                    <br/><?php if(isset($_SESSION['pseudo'])) ?>
+                         <a href="delete.php?table=billets&id=<?php echo $billet['id']; ?>">Supprimer</a></p>
+
                 </p>
+
             </article>
             <?php
         }

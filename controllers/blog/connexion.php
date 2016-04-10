@@ -6,6 +6,7 @@ if(isset($_POST['pseudo'])) {
     if (getadmin($pseudo, $password)) {
         session_start();
         $_SESSION['pseudo'] = $pseudo;
+        unset($_SESSION['token']);
         header('Location:dashboard.php');
     } else {
             echo 'lol';
