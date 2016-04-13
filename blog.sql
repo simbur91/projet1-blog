@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 06 Avril 2016 à 00:44
+-- Généré le :  Jeu 14 Avril 2016 à 01:02
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `billets` (
   `date_creation` varchar(255) DEFAULT NULL,
   `auteur` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=109 ;
 
 --
 -- Contenu de la table `billets`
@@ -139,7 +139,7 @@ INSERT INTO `billets` (`id`, `titre`, `contenu`, `date_creation`, `auteur`) VALU
 (97, 'suscipit, est ac facilisis facilisis, magna tellus faucibus leo,', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non, sollicitudin a, malesuada id, erat. Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper', '2015-08-15 08:24:28', 'commodo'),
 (98, 'commodo at, libero.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non, sollicitudin a, malesuada id, erat. Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna. Ut tincidunt vehicula risus. Nulla eget metus eu erat semper rutrum. Fusce dolor quam, elementum at, egestas a, scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed orci lobortis augue', '2015-08-29 22:14:57', 'Donec'),
 (99, 'hendrerit neque. In ornare', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec', '2017-01-23 10:18:04', 'cursus'),
-(100, 'hendrerit. Donec', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Curabitur sed tortor. Integer aliquam adipiscing lacus. Ut nec urna et arcu', '2017-02-20 06:32:26', 'nisi.');
+(100, 'test', 'test2>', '2017-02-20 06:32:26', 'simon');
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   `statut` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_id_billet` (`id_billet`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=106 ;
 
 --
 -- Contenu de la table `commentaires`
@@ -191,7 +191,6 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 (4, 100, 'Paul', NULL, 'eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit, pellentesque a, facilisis non, bibendum sed, est. Nunc laoreet lectus quis massa. Mauris vestibulum, neque sed dictum', '2016-03-12 07:12:26', 1),
 (5, 60, 'Xantha', NULL, 'nec urna suscipit nonummy. Fusce fermentum fermentum arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec, mollis vitae, posuere at, velit.', '2016-01-23 08:40:52', 0),
 (6, 5, 'Leigh', NULL, 'est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque. Morbi quis urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla. In tincidunt congue turpis. In condimentum. Donec at', '2016-12-25 05:47:11', 0),
-(7, 81, 'Aladdin', NULL, 'Nulla interdum. Curabitur dictum. Phasellus in felis. Nulla tempor augue', '2016-10-21 12:22:30', 0),
 (8, 68, 'Richard', NULL, 'et magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna a tortor. Nunc commodo auctor velit. Aliquam nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia', '2015-11-17 18:02:13', 0),
 (9, 24, 'Whoopi', NULL, 'aliquam adipiscing lacus. Ut nec urna et arcu imperdiet ullamcorper. Duis at lacus. Quisque purus sapien, gravida non, sollicitudin a, malesuada id, erat. Etiam vestibulum massa rutrum magna. Cras convallis convallis dolor. Quisque tincidunt pede ac urna.', '2015-11-06 17:37:09', 0),
 (10, 15, 'Nevada', NULL, 'lobortis mauris. Suspendisse aliquet molestie tellus. Aenean egestas hendrerit neque. In ornare sagittis felis. Donec tempor, est ac', '2016-12-28 18:32:34', 0),
@@ -242,7 +241,6 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 (55, 60, 'Katell', NULL, 'sed, facilisis vitae, orci. Phasellus dapibus quam quis diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis. Integer tincidunt aliquam arcu.', '2015-12-22 03:30:59', 0),
 (56, 34, 'Hamish', NULL, 'magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit, pretium', '2016-09-08 16:43:26', 0),
 (57, 59, 'Colt', NULL, 'et nunc. Quisque ornare tortor at risus. Nunc ac sem ut dolor dapibus gravida. Aliquam tincidunt, nunc ac mattis ornare, lectus ante dictum mi, ac mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras interdum. Nunc sollicitudin commodo ipsum. Suspendisse non leo.', '2015-06-05 14:21:07', 0),
-(58, 82, 'Brody', NULL, 'pretium aliquet, metus urna convallis erat, eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui. Cum sociis natoque penatibus et', '2015-08-14 08:03:34', 0),
 (59, 75, 'Rylee', NULL, 'vel, faucibus id, libero. Donec consectetuer mauris id sapien. Cras dolor dolor, tempus non, lacinia at, iaculis quis, pede. Praesent eu dui.', '2016-04-22 07:07:41', 0),
 (60, 36, 'Nerea', NULL, 'ut cursus luctus, ipsum leo elementum sem, vitae aliquam eros turpis non enim. Mauris quis turpis vitae purus gravida sagittis. Duis gravida. Praesent eu nulla at sem molestie sodales. Mauris blandit enim consequat purus. Maecenas libero est, congue a, aliquet vel, vulputate eu, odio. Phasellus at augue id ante', '2017-01-04 19:43:12', 0),
 (61, 50, 'Isaiah', NULL, 'in, cursus et, eros. Proin ultrices. Duis volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis. Suspendisse commodo tincidunt nibh. Phasellus nulla. Integer vulputate, risus a', '2015-07-29 09:24:46', 0),
@@ -256,7 +254,6 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 (69, 55, 'Sebastian', NULL, 'ac facilisis facilisis, magna tellus faucibus leo, in lobortis tellus justo sit amet nulla. Donec non justo. Proin non massa non ante bibendum ullamcorper. Duis cursus, diam at pretium aliquet, metus urna convallis erat, eget tincidunt dui augue eu tellus. Phasellus elit pede, malesuada vel, venenatis vel, faucibus', '2015-11-02 07:11:40', 0),
 (70, 32, 'Zenaida', NULL, 'magna. Sed eu eros. Nam consequat dolor vitae dolor. Donec fringilla. Donec feugiat metus sit amet ante. Vivamus non', '2016-12-03 10:39:36', 0),
 (71, 79, 'Maite', NULL, 'quam dignissim', '2015-07-16 19:45:44', 0),
-(72, 83, 'August', NULL, 'nisl. Nulla eu neque pellentesque massa lobortis ultrices. Vivamus rhoncus. Donec est. Nunc ullamcorper, velit in aliquet lobortis, nisi nibh lacinia orci, consectetuer euismod est arcu ac orci. Ut semper pretium neque. Morbi quis urna. Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla. In', '2016-12-02 23:54:25', 0),
 (73, 85, 'Aurora', NULL, 'ultrices posuere cubilia Curae; Phasellus ornare. Fusce mollis. Duis sit amet diam eu dolor egestas rhoncus. Proin nisl sem, consequat nec,', '2015-06-20 03:33:45', 1),
 (74, 37, 'Quail', NULL, 'Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu, ligula. Aenean euismod mauris eu elit. Nulla facilisi. Sed neque. Sed eget lacus. Mauris non dui', '2017-01-19 07:28:14', 0),
 (75, 72, 'Caleb', NULL, 'imperdiet, erat', '2016-08-30 14:22:14', 0),
@@ -274,7 +271,6 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 (87, 79, 'Julian', NULL, 'dictum augue malesuada malesuada. Integer id magna et ipsum cursus vestibulum. Mauris magna. Duis dignissim tempor arcu. Vestibulum ut eros non enim commodo hendrerit. Donec porttitor tellus non magna. Nam ligula elit, pretium et, rutrum non, hendrerit', '2015-09-09 12:30:38', 0),
 (88, 4, 'Kyra', NULL, 'lacinia vitae, sodales at, velit. Pellentesque ultricies dignissim lacus. Aliquam rutrum lorem ac', '2016-07-30 07:38:05', 0),
 (89, 86, 'Richard', NULL, 'ligula. Aenean gravida nunc sed pede. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin vel arcu eu odio tristique pharetra. Quisque ac libero nec ligula consectetuer rhoncus. Nullam velit', '2016-07-28 23:37:13', 1),
-(90, 82, 'Matthew', NULL, 'orci. Ut', '2015-04-24 11:42:33', 0),
 (91, 43, 'Casey', NULL, 'leo. Cras vehicula aliquet libero. Integer in magna. Phasellus dolor elit,', '2015-10-05 21:32:58', 0),
 (92, 2, 'Quentin', NULL, 'mauris sit amet lorem semper auctor. Mauris vel turpis. Aliquam adipiscing lobortis risus. In mi pede, nonummy ut, molestie in, tempus eu,', '2015-05-16 22:11:32', 0),
 (93, 8, 'Clare', NULL, 'quis diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce aliquet magna a neque. Nullam ut nisi a odio semper cursus. Integer mollis.', '2016-01-28 07:20:17', 0),
@@ -285,11 +281,7 @@ INSERT INTO `commentaires` (`id`, `id_billet`, `auteur`, `email`, `commentaire`,
 (98, 26, 'Serina', NULL, 'Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis', '2016-12-18 06:26:35', 0),
 (99, 30, 'Zephr', NULL, 'rutrum lorem ac risus. Morbi metus. Vivamus euismod', '2015-04-21 15:50:48', 0),
 (100, 100, 'Lilah', NULL, 'nisl. Maecenas malesuada fringilla est. Mauris eu turpis. Nulla aliquet. Proin velit. Sed malesuada augue ut lacus. Nulla tincidunt, neque vitae semper egestas, urna justo faucibus lectus, a sollicitudin orci sem eget massa. Suspendisse eleifend. Cras sed leo. Cras vehicula', '2015-07-04 10:00:31', 1),
-(101, 100, 'simon', 'simon.buerman@gmail.com', 'contenu', '2016-03-22 14:06:48', 1),
-(102, 100, 'simon', 'simon.buerman@gmail.com', 'salut', '2016-03-31 09:51:38', 1),
-(103, 100, 'simars', 'simon.buerman@gmail.com', 'sss', '2016-03-31 09:55:09', 1),
-(104, 100, 'kevin', 'simon.buerman@gmail.com', 'ssss', '2016-03-31 09:55:33', 1),
-(105, 100, 'simars', 'simon.buerman@gmail.com', 'sss', '2016-03-31 09:59:07', 1);
+(101, 100, 'simon', 'simon.buerman@gmail.com', 'contenu', '2016-03-22 14:06:48', 1);
 
 -- --------------------------------------------------------
 
@@ -362,7 +354,7 @@ DELIMITER ;
 -- Contraintes pour la table `commentaires`
 --
 ALTER TABLE `commentaires`
-  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`id_billet`) REFERENCES `billets` (`id`);
+  ADD CONSTRAINT `commentaires_ibfk_1` FOREIGN KEY (`id_billet`) REFERENCES `billets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `validation`
