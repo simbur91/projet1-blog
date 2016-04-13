@@ -33,7 +33,6 @@ if (isset($_POST['submit'])) {
         }
 
 
-    } else {
     }
 } else {
     include_once 'vues/admin/addbillet.php';

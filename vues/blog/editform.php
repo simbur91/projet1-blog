@@ -16,14 +16,14 @@ if (!isset($_SESSION['pseudo'])) {
 </head>
 
 <body>
-<form method="post" action="">
+<form method="post" action="edition_post.php?billet=<?php echo $billet['id'];?>">
 
         <h4>Ajouter un billet</h4>
-        <label for="titre"> Pseudo</label><input type="text" name="pseudo" id="pseudo" value="<?php echo $billet['titre'];?>"/><br/>
-        <label for="auteur">Auteur</label><input type="auteur" id="auteur" name="auteur"/><br/>
+        <label for="titre"> Titre</label><input type="text" name="titre" id="titre" value="<?php echo $billet['titre'];?>"/><br/>
+        <label for="auteur">Auteur</label><input type="auteur" id="auteur" name="auteur" value="<?php echo $billet['auteur'];?>"/><br/>
         <label for="contenu">contenu</label><textarea name="contenu" id="contenu" cols="50" rows="10"><?php echo $billet['contenu'];?>></textarea><br/>
         <input type="hidden" name="token" id="token" value="<?php echo $token; ?>"/>
-        <input type="submit" value="Envoyer" class="envoyer"/>
+        <input type="submit" name="submit" value="Envoyer" class="envoyer"/>
 
 </form>
 </body>

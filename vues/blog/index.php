@@ -25,7 +25,11 @@ session_start();
             $time_out = 5;
             $url='blog.php';
             header("refresh: $time_out; url=$url");
-        }
+        }elseif(isset($_GET['message']) && $_GET['message']=='envoyer'){
+        echo '<p class="envoyer">le billet a été modifié</p>';
+        $time_out = 5;
+        $url='blog.php';
+        header("refresh: $time_out; url=$url");}
         
         foreach ($billets as $billet) {
             ?>
