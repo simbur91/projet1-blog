@@ -30,15 +30,18 @@ session_start();
         <p>
             <?php echo $commentaire['contenu']; ?>
             <em><a href="blog.php">Liste des billets</a></em>
+            <a href="editer.php?id=<?php echo $commentaire['id']; ?>">Modifier</a>
+            <a href="delete.php?id=<?php echo $commentaire['id'];?>&table=billets">Supprimer</a></p>
+
             <br />
         </p>
             </article>
           
         <?php
-                if(isset($_GET['message'])){
+                if(isset($_GET['message']) && $_GET['message']=='envoyer'){
             echo '<p class="envoie">Votre commentaire a bien été enregistré et attend d\'être soumis à validation </p>';
         }
-        
+
         foreach ($commentaires as $commentaire) {
             $avatar="http://2.gravatar.com/avatar/" . md5($commentaire['email']);
            if(!empty($commentaire['commentaire'])){
@@ -47,7 +50,8 @@ session_start();
              
 
                 <p><img src="<?php echo $avatar; ?>"<strong><?php echo $commentaire['auteur']; ?></strong> le <?php echo $commentaire['date_commentaire_fr']; ?></p>
-                <p> <?php echo $commentaire['commentaire']; ?></p>
+                <p> <?php echo $commentaire['commentaire']; ?>
+                    <a href="delete.php?id=<?php echo $commentaire['id_com'];?>&table=commentaires">Supprimer</a></p>
             </div>
         <?php
         }

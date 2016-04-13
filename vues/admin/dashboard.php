@@ -25,6 +25,12 @@ if (!isset($_SESSION['pseudo'])) {
         </p>
         <p><a href="addbillet.php">Ajouter un billet</a></p>
         <?php
+if(isset($_GET['message']) && $_GET['message']=='supprimer'){
+    echo '<p class="deco">Suppression effectuée</p>';
+    $time_out = 5;
+    $url='dashboard.php';
+    header("refresh: $time_out; url=$url");
+}
         $currentbilletid = $lastbilletid = null;
 
         foreach ($validations as $validation) {

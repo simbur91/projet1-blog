@@ -20,12 +20,13 @@ session_start();
         
         echo'<a href="connexion.php">Connexion</a><a href="inscription.php">S\'inscrire</a>';
         }
-        if(isset($_GET['message']) && $_GET['message']='deconnecter'){
+        if(isset($_GET['message']) && $_GET['message']=='deconnecter'){
             echo '<p class="deco">Vous vous êtes déconnecté</p>';
             $time_out = 5;
             $url='blog.php';
             header("refresh: $time_out; url=$url");
         }
+        
         foreach ($billets as $billet) {
             ?>
             <article>
@@ -39,7 +40,8 @@ session_start();
                     <br />
                     <em><a href="commentaires.php?billet=<?php echo $billet['id']; ?>">Commentaires</a></em>
                     <br/><?php if(isset($_SESSION['pseudo'])) ?>
-                         <a href="delete.php?table=billets&id=<?php echo $billet['id']; ?>">Supprimer</a></p>
+                         <a href="delete.php?table=billets&id=<?php echo $billet['id']; ?>">Supprimer</a>
+                    <a href="editer.php?billet=<?php echo $billet['id']; ?>">Modifier</a></p>
 
                 </p>
 
