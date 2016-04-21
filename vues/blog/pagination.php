@@ -3,7 +3,7 @@
         <?php
         echo 'Page :';
         for ($i = 1; $i <= $limit[1]; $i++) {
-            echo '<a href='.$nompage.'.php?page=' . $i . '>' . $i . '</a> - ';
+            echo '<a href='.$nompage.'.php?page=' . $i . '>' . $i . '</a>  ';
 
         }
         ?>
